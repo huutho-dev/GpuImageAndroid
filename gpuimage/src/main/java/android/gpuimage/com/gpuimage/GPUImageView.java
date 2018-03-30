@@ -105,8 +105,8 @@ public class GPUImageView extends FrameLayout {
      * @param green green color value
      * @param blue red color value
      */
-    public void setBackgroundColor(float red, float green, float blue) {
-        mGPUImage.setBackgroundColor(red, green, blue);
+    public void setBackgroundColor(float red, float green, float blue, float alpha) {
+        mGPUImage.setBackgroundColor(red, green, blue, alpha);
     }
 
     // TODO Should be an xml attribute. But then GPUImage can not be distributed as .jar anymore.

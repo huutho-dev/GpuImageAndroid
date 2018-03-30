@@ -75,6 +75,7 @@ public class GPUImageRenderer implements Renderer, PreviewCallback {
     private float mBackgroundRed = 0;
     private float mBackgroundGreen = 0;
     private float mBackgroundBlue = 0;
+    private float mBackgroundAlpha = 0;
 
     public GPUImageRenderer(final GPUImageFilter filter) {
         mFilter = filter;
@@ -94,7 +95,7 @@ public class GPUImageRenderer implements Renderer, PreviewCallback {
 
     @Override
     public void onSurfaceCreated(final GL10 unused, final EGLConfig config) {
-        GLES20.glClearColor(mBackgroundRed, mBackgroundGreen, mBackgroundBlue, 1);
+        GLES20.glClearColor(mBackgroundRed, mBackgroundGreen, mBackgroundBlue, mBackgroundAlpha);
         GLES20.glDisable(GLES20.GL_DEPTH_TEST);
         mFilter.init();
     }
@@ -130,10 +131,11 @@ public class GPUImageRenderer implements Renderer, PreviewCallback {
      * @param green green color value
      * @param blue red color value
      */
-    public void setBackgroundColor(float red, float green, float blue) {
+    public void setBackgroundColor(float red, float green, float blue, float alpha) {
         mBackgroundRed = red;
         mBackgroundGreen = green;
         mBackgroundBlue = blue;
+        mBackgroundAlpha = alpha;
     }
 
     private void runAll(Queue<Runnable> queue) {

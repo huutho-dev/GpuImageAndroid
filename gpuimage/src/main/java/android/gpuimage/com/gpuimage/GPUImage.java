@@ -110,8 +110,8 @@ public class GPUImage {
      * @param green green color value
      * @param blue red color value
      */
-    public void setBackgroundColor(float red, float green, float blue) {
-        mRenderer.setBackgroundColor(red, green, blue);
+    public void setBackgroundColor(float red, float green, float blue, float alpha) {
+        mRenderer.setBackgroundColor(red, green, blue, alpha);
     }
 
     /**
