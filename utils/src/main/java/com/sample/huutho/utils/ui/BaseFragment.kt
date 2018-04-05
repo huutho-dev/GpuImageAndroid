@@ -1,4 +1,4 @@
-package android.gpuimage.com.UI
+package com.sample.huutho.utils.ui
 
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -8,14 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 
 /**
- * Created by ThoNh on 3/30/2018.
+ * Created by HuuTho on 4/1/2018.
  */
-
-abstract class BaseFragment : Fragment() {
-
+abstract class BaseFragment : Fragment()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
+
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return super.onCreateView(inflater, container, savedInstanceState)
@@ -49,6 +48,4 @@ abstract class BaseFragment : Fragment() {
 
 
     fun takeImageFromCamera() = getCurrentActivity().takeImageFromCamera()
-
-
 }
