@@ -2,19 +2,14 @@ package com.sample.huutho.utils.ui
 
 import android.app.Activity
 import android.content.Intent
-import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import org.jetbrains.anko.AnkoLogger
 
 
 /**
  * Created by HuuTho on 4/1/2018.
  */
-abstract class BaseActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
+abstract class BaseActivity : AppCompatActivity() , AnkoLogger{
 
     /**
      * Support for onBackPressed() in fragment
@@ -43,5 +38,4 @@ abstract class BaseActivity : AppCompatActivity() {
             supportFragmentManager.fragments.forEach { it.onActivityResult(requestCode, resultCode, data) }
         }
     }
-
 }
