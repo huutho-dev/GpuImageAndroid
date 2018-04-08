@@ -95,9 +95,10 @@ public class GPUImage {
      */
     public void setGLSurfaceView(final GLSurfaceView view) {
         mGlSurfaceView = view;
+        mGlSurfaceView.setZOrderOnTop(true);
         mGlSurfaceView.setEGLContextClientVersion(2);
         mGlSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
-        mGlSurfaceView.getHolder().setFormat(PixelFormat.RGBA_8888);
+        mGlSurfaceView.getHolder().setFormat(PixelFormat.TRANSPARENT);
         mGlSurfaceView.setRenderer(mRenderer);
         mGlSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
         mGlSurfaceView.requestRender();

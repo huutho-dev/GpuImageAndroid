@@ -16,7 +16,6 @@
 
 package android.gpuimage.com.gpuimage;
 
-import android.annotation.SuppressLint;
 import android.gpuimage.com.gpuimage.util.TextureRotationUtil;
 import android.opengl.GLES20;
 
@@ -176,7 +175,41 @@ public class GPUImageFilterGroup extends GPUImageFilter {
      * @see jp.co.cyberagent.android.gpuimage.GPUImageFilter#onDraw(int,
      * java.nio.FloatBuffer, java.nio.FloatBuffer)
      */
-    @SuppressLint("WrongCall")
+//    @SuppressLint("WrongCall")
+//    @Override
+//    public void onDraw(final int textureId, final FloatBuffer cubeBuffer,
+//                       final FloatBuffer textureBuffer) {
+//        runPendingOnDrawTasks();
+//        if (!isInitialized() || mFrameBuffers == null || mFrameBufferTextures == null) {
+//            return;
+//        }
+//        if (mMergedFilters != null) {
+//            int size = mMergedFilters.size();
+//            int previousTexture = textureId;
+//            for (int i = 0; i < size; i++) {
+//                GPUImageFilter filter = mMergedFilters.get(i);
+//                boolean isNotLast = i < size - 1;
+//                if (isNotLast) {
+//                    GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, mFrameBuffers[i]);
+//                    GLES20.glClearColor(0, 0, 0, 0);
+//                }
+//
+//                if (i == 0) {
+//                    filter.onDraw(previousTexture, cubeBuffer, textureBuffer);
+//                } else if (i == size - 1) {
+//                    filter.onDraw(previousTexture, mGLCubeBuffer, (size % 2 == 0) ? mGLTextureFlipBuffer : mGLTextureBuffer);
+//                } else {
+//                    filter.onDraw(previousTexture, mGLCubeBuffer, mGLTextureBuffer);
+//                }
+//
+//                if (isNotLast) {
+//                    GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
+//                    previousTexture = mFrameBufferTextures[i];
+//                }
+//            }
+//        }
+//     }
+
     @Override
     public void onDraw(final int textureId, final FloatBuffer cubeBuffer,
                        final FloatBuffer textureBuffer) {
@@ -184,32 +217,17 @@ public class GPUImageFilterGroup extends GPUImageFilter {
         if (!isInitialized() || mFrameBuffers == null || mFrameBufferTextures == null) {
             return;
         }
-        if (mMergedFilters != null) {
-            int size = mMergedFilters.size();
-            int previousTexture = textureId;
-            for (int i = 0; i < size; i++) {
-                GPUImageFilter filter = mMergedFilters.get(i);
-                boolean isNotLast = i < size - 1;
-                if (isNotLast) {
-                    GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, mFrameBuffers[i]);
-                    GLES20.glClearColor(0, 0, 0, 0);
-                }
-
-                if (i == 0) {
-                    filter.onDraw(previousTexture, cubeBuffer, textureBuffer);
-                } else if (i == size - 1) {
-                    filter.onDraw(previousTexture, mGLCubeBuffer, (size % 2 == 0) ? mGLTextureFlipBuffer : mGLTextureBuffer);
-                } else {
-                    filter.onDraw(previousTexture, mGLCubeBuffer, mGLTextureBuffer);
-                }
-
-                if (isNotLast) {
-                    GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
-                    previousTexture = mFrameBufferTextures[i];
-                }
-            }
+        int previousTexture = textureId;
+        for (int i = 0; i < mFilters.size() - 1; i++) {
+            GPUImageFilter filter = mFilters.get(i);
+            GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, mFrameBuffers[i]);
+            GLES20.glClearColor(0, 0, 0, 0);
+            filter.onDraw(previousTexture, mGLCubeBuffer, (i == 0 && mFilters.size() % 2 == 0) ? mGLTextureFlipBuffer : mGLTextureBuffer);
+            GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, 0);
+            previousTexture = mFrameBufferTextures[i];
         }
-     }
+        mFilters.get(mFilters.size() - 1).onDraw(previousTexture, cubeBuffer, textureBuffer);
+    }
 
     /**
      * Gets the filters.
