@@ -1,3 +1,4 @@
+package com.sample.huutho.utils
 
 import android.app.Application
 import android.content.Context
@@ -11,10 +12,8 @@ import android.os.Environment
 import android.support.annotation.DrawableRes
 import android.util.Log
 import android.util.LruCache
-import com.sample.huutho.utils.Config
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.async
-import org.jetbrains.anko.runOnUiThread
 import java.io.File
 import java.io.FileDescriptor
 import java.io.FileOutputStream
@@ -192,7 +191,7 @@ fun Any.saveBitmap(context: Context,
                    failure: () -> Unit = {}) = try {
 
     Log.e("ThoNH", "saveBitmap -> bitmap(${bmp.width}, ${bmp.height})")
-
+    start.invoke()
     async {
 
         val mediaStorageDir = File(Config.SAVE_IMAGE_DIR)
@@ -230,6 +229,41 @@ fun Any.saveBitmap(context: Context,
 } catch (ex: Exception) {
     ex.printStackTrace()
     failure.invoke()
+}
+
+/**
+ * Save bitmap to cache dir
+ * Call when u want transform bitmap to fragment or other activity
+ */
+fun Context.saveBitmapToTempCache(bmp: Bitmap, success: (file: File) -> Unit = {}, failure: () -> Unit) = try {
+    val startTime = System.currentTimeMillis()
+
+    val file = File("$cacheDir/Tempp.JPG")
+
+    if (file.exists()){
+        file.delete()
+        file.createNewFile()
+    }
+
+    Log.e("ThoNH", "saveBitmapToTempCache -> path:${file.absolutePath}")
+    val fos = FileOutputStream(file)
+    bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos)
+    fos.flush()
+    fos.close()
+    Log.e("ThoNH", "saveBitmapToTempCache -> total time:${System.currentTimeMillis() - startTime}")
+    success.invoke(file)
+
+} catch (ex: Exception) {
+    ex.printStackTrace()
+    failure.invoke()
+}
+
+
+/**
+ * Get bitmap from cache dir
+ */
+fun Context.getBitmapFromTempCache(start: () -> Unit, success: (bmp: Bitmap) -> Unit, failure: () -> Unit = {}) {
+    decodeFile("$cacheDir/Tempp.JPG", start = start, success = success, failure = failure)
 }
 
 

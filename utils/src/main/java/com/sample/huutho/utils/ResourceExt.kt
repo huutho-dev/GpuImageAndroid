@@ -1,4 +1,4 @@
-package android.utils.nht.superutils.utils
+package com.sample.huutho.utils
 
 import android.content.Context
 import android.content.res.Resources
