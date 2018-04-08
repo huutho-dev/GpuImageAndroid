@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/StyleToolbar">
+
+    <TextView
+        android:id="@+id/control_bar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Title"
+        android:textSize="16sp" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/control_bar_cancel"
+        android:layout_width="@dimen/_48dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:background="@color/colorAccent"
+        android:tint="@color/colorDarkIconActive" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/control_bar_done"
+        android:layout_width="@dimen/_48dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="@color/colorAccent"
+        android:tint="@color/colorDarkIconActive" />
+
+</RelativeLayout>

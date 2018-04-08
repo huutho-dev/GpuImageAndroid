@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="divider_height">1px</dimen>
+    <dimen name="_1dp">2px</dimen>
+    <dimen name="_4dp">8px</dimen>
+    <dimen name="_8dp">16px</dimen>
+    <dimen name="_16dp">32px</dimen>
+    <dimen name="_24dp">48px</dimen>
+    <dimen name="_32dp">64px</dimen>
+    <dimen name="_40dp">80px</dimen>
+    <dimen name="_48dp">96px</dimen>
+    <dimen name="_56dp">112px</dimen>
+    <dimen name="_64dp">128px</dimen>
+    <dimen name="_72dp">144px</dimen>
+    <dimen name="_96dp">192px</dimen>
+</resources>

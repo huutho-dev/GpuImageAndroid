@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="height_control_bar">@dimen/_48dp</dimen>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#E91E63</color>
+    <color name="colorPrimaryDark">#C2185B</color>
+    <color name="colorAccent">#AED581</color>
+
+    <!--// LightBackground-->
+    <color name="colorTextDarkPrimary">#de000000</color>
+    <color name="colorTextDarkSecondary">#8a000000</color>
+    <color name="colorTextDarkHint">#61000000</color>
+    <color name="colorTextDarkDisabled">@color/colorTextDarkHint</color>
+    <color name="colorTextDarkDivider">#1f000000</color>
+    <color name="colorDarkIconActive">#8a000000</color>
+    <color name="colorDarkIconInactive">#61000000</color>
+
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorTransparent">#00000000</color>
+
+    <color name="colorBackgroundControlBar">#1f000000</color>
+</resources>
