@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:background="#e2e2e2"
     android:layout_height="wrap_content">
 
     <include
@@ -9,25 +8,33 @@
         layout="@layout/view_control_bar" />
 
     <android.gpuimage.com.gpuimage.GPUImageView
-        android:layout_margin="@dimen/_8dp"
         android:id="@+id/gpu_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/seek_bar"
         android:layout_below="@+id/control_bar" />
 
+    <TextView
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/horizontal_scroll_view"
+        android:padding="@dimen/_16dp"
+        android:text="@string/adjust_reset" />
+
     <SeekBar
         android:id="@+id/seek_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/horizontal_scroll_view"
-        android:padding="@dimen/_16dp"
+        android:layout_alignBottom="@+id/reset"
+        android:layout_alignTop="@+id/reset"
+        android:layout_toRightOf="@+id/reset"
         android:progress="50" />
 
     <HorizontalScrollView
         android:id="@+id/horizontal_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_72dp"
+        android:layout_height="@dimen/_64dp"
         android:layout_alignParentBottom="true">
 
         <LinearLayout

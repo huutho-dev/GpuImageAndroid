@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">GpuImage</string>
+
+    <!--Adjust Tools-->
+    <string name="adjust_brightness">Brightness</string>
+    <string name="adjust_sharpness">Sharpen</string>
+    <string name="adjust_contrast">Contrast</string>
+    <string name="adjust_saturation">Saturation</string>
+    <string name="adjust_vignette">Vignette</string>
+    <string name="adjust_white_balance">White Balance</string>
+    <string name="adjust_reset">Reset</string>
 </resources>

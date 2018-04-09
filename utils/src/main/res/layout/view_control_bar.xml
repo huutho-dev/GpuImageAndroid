@@ -8,6 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="Title"
+        android:textColor="@color/colorPrimary"
         android:textSize="16sp" />
 
     <android.support.v7.widget.AppCompatImageView
@@ -15,7 +16,9 @@
         android:layout_width="@dimen/_48dp"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:background="@color/colorAccent"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/_8dp"
+        android:src="@drawable/ic_close"
         android:tint="@color/colorDarkIconActive" />
 
     <android.support.v7.widget.AppCompatImageView
@@ -23,7 +26,9 @@
         android:layout_width="@dimen/_48dp"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
-        android:background="@color/colorAccent"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/_8dp"
+        android:src="@drawable/ic_check"
         android:tint="@color/colorDarkIconActive" />
 
 </RelativeLayout>

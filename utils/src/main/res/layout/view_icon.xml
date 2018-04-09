@@ -2,15 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackgroundBorderless"
     android:orientation="vertical"
-    android:padding="@dimen/_4dp">
+    android:paddingBottom="@dimen/_8dp"
+    android:paddingLeft="@dimen/_24dp"
+    android:paddingRight="@dimen/_24dp"
+    android:paddingTop="@dimen/_4dp">
 
     <ImageView
-        android:src="@android:drawable/arrow_down_float"
         android:id="@+id/icon"
-        android:layout_width="@dimen/_32dp"
-        android:layout_height="@dimen/_32dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="@dimen/_24dp"
+        android:layout_height="@dimen/_24dp"
+        android:layout_centerHorizontal="true"
+        android:src="@android:drawable/arrow_down_float" />
 
     <TextView
         android:id="@+id/text"
@@ -19,6 +23,7 @@
         android:layout_below="@+id/icon"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_4dp"
-        android:text="@string/app_name" />
+        android:text="@string/app_name"
+        android:textSize="10sp" />
 
 </RelativeLayout>

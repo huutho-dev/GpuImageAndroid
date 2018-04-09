@@ -235,12 +235,12 @@ fun Any.saveBitmap(context: Context,
  * Save bitmap to cache dir
  * Call when u want transform bitmap to fragment or other activity
  */
-fun Context.saveBitmapToTempCache(bmp: Bitmap, success: (file: File) -> Unit = {}, failure: () -> Unit) = try {
+fun Context.saveBitmapToTempCache(bmp: Bitmap, success: (file: File) -> Unit = {}, failure: () -> Unit = {}) = try {
     val startTime = System.currentTimeMillis()
 
     val file = File("$cacheDir/Tempp.JPG")
 
-    if (file.exists()){
+    if (file.exists()) {
         file.delete()
         file.createNewFile()
     }
