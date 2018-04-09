@@ -27,8 +27,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
@@ -37,8 +36,11 @@ dependencies {
     compile 'org.jetbrains.anko:anko:0.10.4'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.2'
 
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    implementation 'io.reactivex.rxjava2:rxjava:2.0.2'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.0.1'
     implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+
+    compile 'com.android.support:recyclerview-v7:27.1.0'
+    compile 'com.isseiaoki:simplecropview:1.1.7'
 }
 
