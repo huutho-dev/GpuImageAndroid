@@ -1,6 +1,5 @@
 package android.gpuimage.com.gpuimageandroid
 
-import android.gpuimage.com.Ui.adjust.AdjustFragment
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -8,6 +7,7 @@ import android.view.Window
 import android.view.WindowManager
 import com.sample.huutho.utils.decodeResource
 import com.sample.huutho.utils.saveBitmapToTempCache
+import com.sample.huutho.utils.ui.crop.CropFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                             { supportFragmentManager
                                     .beginTransaction()
                                     .addToBackStack("AdjustFragment")
-                                    .add(R.id.root, AdjustFragment.newInstance())
+                                    .add(R.id.root, CropFragment.newInstance())
                                     .commit()},
                             {})
                 },

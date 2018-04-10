@@ -14,10 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/horizontal_scroll_view"
         android:layout_below="@+id/control_bar"
-        android:paddingBottom="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingTop="16dp"
+        android:padding="@dimen/_16dp"
         custom:scv_background_color="@color/colorWhite"
         custom:scv_crop_mode="fit_image"
         custom:scv_frame_color="@color/colorAccent"
@@ -27,7 +24,7 @@
         custom:scv_guide_stroke_weight="1dp"
         custom:scv_handle_color="@color/colorAccent"
         custom:scv_handle_show_mode="show_always"
-        custom:scv_handle_size="14dp"
+        custom:scv_handle_size="8dp"
         custom:scv_min_frame_size="50dp"
         custom:scv_overlay_color="@color/colorTextDarkHint"
         custom:scv_touch_padding="8dp" />
@@ -35,13 +32,14 @@
     <HorizontalScrollView
         android:id="@+id/horizontal_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_48dp"
+        android:layout_height="@dimen/_72dp"
         android:layout_alignParentBottom="true">
 
         <LinearLayout
-            android:id="@+id/crop_container"
+            android:id="@+id/mCropContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="horizontal" />
     </HorizontalScrollView>
 
