@@ -73,6 +73,7 @@ class CropFragment : BaseFragment() {
 
 
     private fun onCropItemClick(cropItem: CropItem, view: IconView) {
+        mTitle.setText(cropItem.title)
         mCropContainer.forEachChild { (it as IconView).setUnSelected() }
         view.setSelected()
         when (cropItem.cropType) {

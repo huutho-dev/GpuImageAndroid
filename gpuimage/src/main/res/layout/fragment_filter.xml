@@ -12,26 +12,22 @@
         android:id="@+id/gpu_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/seek_bar"
         android:layout_below="@+id/control_bar" />
 
 
     <SeekBar
+        android:id="@+id/seek_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/recycler_view"
+        android:layout_above="@+id/horizontal_scroll_view"
         android:padding="@dimen/_8dp" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_72dp"
-        android:layout_above="@+id/horizontal_scroll_view" />
 
     <HorizontalScrollView
         android:id="@+id/horizontal_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_32dp"
-        android:layout_alignParentBottom="true">
+        android:layout_above="@+id/recycler_view">
 
         <LinearLayout
             android:id="@+id/filter_category_container"
@@ -39,5 +35,11 @@
             android:layout_height="match_parent"
             android:orientation="horizontal" />
     </HorizontalScrollView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_72dp"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

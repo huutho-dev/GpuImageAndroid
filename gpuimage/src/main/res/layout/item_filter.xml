@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_56dp"
+    android:layout_height="@dimen/_56dp"
+    android:layout_marginLeft="@dimen/_8dp"
+    android:layout_marginRight="@dimen/_8dp"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/image_filter"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:textSize="9sp"
+        android:id="@+id/text_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorTextDarkSecondary"
+        android:gravity="center"
+        android:text="B1"
+        android:textColor="@color/colorWhite" />
+
+</RelativeLayout>

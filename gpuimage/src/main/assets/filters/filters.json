@@ -1,0 +1,554 @@
+[
+  {
+    "title": "Basic",
+    "order": 0,
+    "items": [
+      {
+        "source": "filters/basic/basic_lookup0.png",
+        "name": "None"
+      },
+      {
+        "source": "filters/basic/basic_lookup1.png",
+        "name": "B1"
+      },
+      {
+        "source": "filters/basic/basic_lookup2.png",
+        "name": "B2"
+      },
+      {
+        "source": "filters/basic/basic_lookup3.png",
+        "name": "B3"
+      },
+      {
+        "source": "filters/basic/basic_lookup4.png",
+        "name": "B4"
+      },
+      {
+        "source": "filters/basic/basic_lookup5.png",
+        "name": "B5"
+      },
+      {
+        "source": "filters/basic/basic_lookup6.png",
+        "name": "B6"
+      },
+      {
+        "source": "filters/basic/basic_lookup7.png",
+        "name": "B7"
+      },
+      {
+        "source": "filters/basic/basic_lookup8.png",
+        "name": "B8"
+      },
+      {
+        "source": "filters/basic/basic_lookup9.png",
+        "name": "B9"
+      },
+      {
+        "source": "filters/basic/basic_lookup10.png",
+        "name": "B10"
+      },
+      {
+        "source": "filters/basic/basic_lookup11.png",
+        "name": "B11"
+      },
+      {
+        "source": "filters/basic/basic_lookup12.png",
+        "name": "B12"
+      },
+      {
+        "source": "filters/basic/basic_lookup13.png",
+        "name": "B13"
+      },
+      {
+        "source": "filters/basic/basic_lookup14.png",
+        "name": "B14"
+      },
+      {
+        "source": "filters/basic/basic_lookup15.png",
+        "name": "B15"
+      },
+      {
+        "source": "filters/basic/basic_lookup16.png",
+        "name": "B16"
+      },
+      {
+        "source": "filters/basic/basic_lookup17.png",
+        "name": "B17"
+      },
+      {
+        "source": "filters/basic/basic_lookup18.png",
+        "name": "B18"
+      },
+      {
+        "source": "filters/basic/basic_lookup19.png",
+        "name": "B19"
+      },
+      {
+        "source": "filters/basic/basic_lookup20.png",
+        "name": "B20"
+      },
+      {
+        "source": "filters/basic/basic_lookup21.png",
+        "name": "B21"
+      },
+      {
+        "source": "filters/basic/basic_lookup22.png",
+        "name": "B22"
+      }
+    ]
+  },
+  {
+    "title": "Duo Tone",
+    "order": 1,
+    "items": [
+      {
+        "source": "filters/duotone/duotone_lookup0.png",
+        "name": "None"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup1.png",
+        "name": "D1"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup2.png",
+        "name": "D2"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup3.png",
+        "name": "D3"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup4.png",
+        "name": "D4"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup5.png",
+        "name": "D5"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup6.png",
+        "name": "D6"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup7.png",
+        "name": "D7"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup8.png",
+        "name": "D8"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup9.png",
+        "name": "D9"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup10.png",
+        "name": "D10"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup11.png",
+        "name": "D11"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup12.png",
+        "name": "D12"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup13.png",
+        "name": "D13"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup14.png",
+        "name": "D14"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup15.png",
+        "name": "D15"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup16.png",
+        "name": "D16"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup17.png",
+        "name": "D17"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup18.png",
+        "name": "D18"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup19.png",
+        "name": "D19"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup20.png",
+        "name": "D20"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup21.png",
+        "name": "D21"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup22.png",
+        "name": "D22"
+      },
+      {
+        "source": "filters/duotone/duotone_lookup23.png",
+        "name": "D23"
+      }
+    ]
+  },
+  {
+    "title": "B&W",
+    "order": 2,
+    "items": [
+      {
+        "source": "filters/bw/b_w_lookup0.png",
+        "name": "None"
+      },
+      {
+        "source": "filters/bw/b_w_lookup1.png",
+        "name": "B&W1"
+      },
+      {
+        "source": "filters/bw/b_w_lookup2.png",
+        "name": "B&W2"
+      },
+      {
+        "source": "filters/bw/b_w_lookup3.png",
+        "name": "B&W3"
+      },
+      {
+        "source": "filters/bw/b_w_lookup4.png",
+        "name": "B&W4"
+      },
+      {
+        "source": "filters/bw/b_w_lookup5.png",
+        "name": "B&W5"
+      },
+      {
+        "source": "filters/bw/b_w_lookup6.png",
+        "name": "B&W6"
+      },
+      {
+        "source": "filters/bw/b_w_lookup7.png",
+        "name": "B&W7"
+      },
+      {
+        "source": "filters/bw/b_w_lookup8.png",
+        "name": "B&W8"
+      },
+      {
+        "source": "filters/bw/b_w_lookup9.png",
+        "name": "B&W9"
+      },
+      {
+        "source": "filters/bw/b_w_lookup10.png",
+        "name": "B&W10"
+      },
+      {
+        "source": "filters/bw/b_w_lookup11.png",
+        "name": "B&W11"
+      },
+      {
+        "source": "filters/bw/b_w_lookup12.png",
+        "name": "B&W12"
+      },
+      {
+        "source": "filters/bw/b_w_lookup13.png",
+        "name": "B&W13"
+      },
+      {
+        "source": "filters/bw/b_w_lookup14.png",
+        "name": "B&W14"
+      },
+      {
+        "source": "filters/bw/b_w_lookup15.png",
+        "name": "B&W15"
+      },
+      {
+        "source": "filters/bw/b_w_lookup16.png",
+        "name": "B&W16"
+      },
+      {
+        "source": "filters/bw/b_w_lookup17.png",
+        "name": "B&W17"
+      },
+      {
+        "source": "filters/bw/b_w_lookup18.png",
+        "name": "B&W18"
+      },
+      {
+        "source": "filters/bw/b_w_lookup19.png",
+        "name": "B&W19"
+      },
+      {
+        "source": "filters/bw/b_w_lookup20.png",
+        "name": "B&W20"
+      },
+      {
+        "source": "filters/bw/b_w_lookup21.png",
+        "name": "B&W21"
+      },
+      {
+        "source": "filters/bw/b_w_lookup22.png",
+        "name": "B&W22"
+      },
+      {
+        "source": "filters/bw/b_w_lookup23.png",
+        "name": "B&W23"
+      },
+      {
+        "source": "filters/bw/b_w_lookup24.png",
+        "name": "B&W24"
+      },
+      {
+        "source": "filters/bw/b_w_lookup25.png",
+        "name": "B&W25"
+      },
+      {
+        "source": "filters/bw/b_w_lookup26.png",
+        "name": "B&W26"
+      },
+      {
+        "source": "filters/bw/b_w_lookup27.png",
+        "name": "B&W27"
+      }
+    ]
+  },
+  {
+    "title": "Summer",
+    "order": 3,
+    "items": [
+      {
+        "source": "filters/summer/summer_lookup0.png",
+        "name": "None"
+      },
+      {
+        "source": "filters/summer/summer_lookup1.png",
+        "name": "S1"
+      },
+      {
+        "source": "filters/summer/summer_lookup2.png",
+        "name": "S2"
+      },
+      {
+        "source": "filters/summer/summer_lookup3.png",
+        "name": "S3"
+      },
+      {
+        "source": "filters/summer/summer_lookup4.png",
+        "name": "S4"
+      },
+      {
+        "source": "filters/summer/summer_lookup5.png",
+        "name": "S5"
+      },
+      {
+        "source": "filters/summer/summer_lookup6.png",
+        "name": "S6"
+      },
+      {
+        "source": "filters/summer/summer_lookup7.png",
+        "name": "S7"
+      },
+      {
+        "source": "filters/summer/summer_lookup8.png",
+        "name": "S8"
+      },
+      {
+        "source": "filters/summer/summer_lookup9.png",
+        "name": "S9"
+      },
+      {
+        "source": "filters/summer/summer_lookup10.png",
+        "name": "S10"
+      },
+      {
+        "source": "filters/summer/summer_lookup11.png",
+        "name": "S11"
+      },
+      {
+        "source": "filters/summer/summer_lookup12.png",
+        "name": "S12"
+      },
+      {
+        "source": "filters/summer/summer_lookup13.png",
+        "name": "S13"
+      },
+      {
+        "source": "filters/summer/summer_lookup14.png",
+        "name": "S14"
+      },
+      {
+        "source": "filters/summer/summer_lookup15.png",
+        "name": "S15"
+      },
+      {
+        "source": "filters/summer/summer_lookup16.png",
+        "name": "S16"
+      },
+      {
+        "source": "filters/summer/summer_lookup17.png",
+        "name": "S17"
+      },
+      {
+        "source": "filters/summer/summer_lookup18.png",
+        "name": "S18"
+      },
+      {
+        "source": "filters/summer/summer_lookup19.png",
+        "name": "S19"
+      },
+      {
+        "source": "filters/summer/summer_lookup20.png",
+        "name": "S20"
+      }
+    ]
+  },
+  {
+    "title": "Vintage",
+    "order": 4,
+    "items": [
+      {
+        "source": "filters/vintage/vintage_lookup0.png",
+        "name": "None"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup1.png",
+        "name": "V1"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup2.png",
+        "name": "V2"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup3.png",
+        "name": "V3"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup4.png",
+        "name": "V4"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup5.png",
+        "name": "V5"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup6.png",
+        "name": "V6"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup7.png",
+        "name": "V7"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup8.png",
+        "name": "V8"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup9.png",
+        "name": "V9"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup10.png",
+        "name": "V10"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup11.png",
+        "name": "V11"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup12.png",
+        "name": "V12"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup13.png",
+        "name": "V13"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup14.png",
+        "name": "V14"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup15.png",
+        "name": "V15"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup16.png",
+        "name": "V16"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup17.png",
+        "name": "V17"
+      },
+      {
+        "source": "filters/vintage/vintage_lookup18.png",
+        "name": "V18"
+      }
+    ]
+  },
+  {
+    "title": "Western",
+    "order": 5,
+    "items": [
+      {
+        "source": "filters/western/western_lookup0.png",
+        "name": "None"
+      },
+      {
+        "source": "filters/western/western_lookup1.png",
+        "name": "W1"
+      },
+      {
+        "source": "filters/western/western_lookup2.png",
+        "name": "W2"
+      },
+      {
+        "source": "filters/western/western_lookup3.png",
+        "name": "W3"
+      },
+      {
+        "source": "filters/western/western_lookup4.png",
+        "name": "W4"
+      },
+      {
+        "source": "filters/western/western_lookup5.png",
+        "name": "W5"
+      },
+      {
+        "source": "filters/western/western_lookup6.png",
+        "name": "W6"
+      },
+      {
+        "source": "filters/western/western_lookup7.png",
+        "name": "W7"
+      },
+      {
+        "source": "filters/western/western_lookup8.png",
+        "name": "W8"
+      },
+      {
+        "source": "filters/western/western_lookup9.png",
+        "name": "W9"
+      },
+      {
+        "source": "filters/western/western_lookup10.png",
+        "name": "W10"
+      },
+      {
+        "source": "filters/western/western_lookup11.png",
+        "name": "W11"
+      },
+      {
+        "source": "filters/western/western_lookup12.png",
+        "name": "W12"
+      },
+      {
+        "source": "filters/western/western_lookup13.png",
+        "name": "W13"
+      }
+    ]
+  }
+]
