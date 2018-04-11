@@ -23,7 +23,6 @@
         android:layout_below="@+id/icon"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_4dp"
-        android:text="@string/app_name"
         android:textSize="10sp" />
 
 </RelativeLayout>

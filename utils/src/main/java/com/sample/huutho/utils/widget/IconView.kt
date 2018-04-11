@@ -21,9 +21,11 @@ class IconView : RelativeLayout {
         addView(view)
     }
 
-    fun setView(@DrawableRes idIcon: Int, @StringRes idName: Int) {
+    fun setView(@DrawableRes idIcon: Int, @StringRes idName: Int = 0) {
         icon.setImageResource(idIcon)
-        text.setText(idName)
+
+        if (idName != 0)
+            text.setText(idName)
     }
 
     fun setSelected() {

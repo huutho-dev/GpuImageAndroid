@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">utils</string>
+    <string name="crop_flip_horizontal">Flip horizontal</string>
+    <string name="crop_flip_vertical">Flip vertical</string>
+    <string name="crop_rotate">Flip vertical</string>
+    <string name="crop_free">Free</string>
+    <string name="crop_fit_origin">Fit origin</string>
+    <string name="crop_ratio_1_1">Ratio 1:1</string>
+    <string name="crop_ratio_3_4">Ratio 3:4</string>
+    <string name="crop_ratio_4_3">Ratio 4:3</string>
+    <string name="crop_ratio_16_9">Ratio 16:9</string>
+    <string name="crop_ratio_9_16">Ratio 9:16</string>
 </resources>

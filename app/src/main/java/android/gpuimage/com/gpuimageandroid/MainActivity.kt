@@ -1,6 +1,6 @@
 package android.gpuimage.com.gpuimageandroid
 
-import android.gpuimage.com.Ui.adjust.AdjustFragment
+import android.gpuimage.com.Ui.filter.FilterFragment
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                             { supportFragmentManager
                                     .beginTransaction()
                                     .addToBackStack("AdjustFragment")
-                                    .add(R.id.root, AdjustFragment.newInstance())
+                                    .add(R.id.root, FilterFragment.newInstance())
                                     .commit()},
                             {})
                 },
