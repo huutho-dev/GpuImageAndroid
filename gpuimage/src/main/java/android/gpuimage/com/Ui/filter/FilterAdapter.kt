@@ -12,18 +12,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import kotlinx.coroutines.experimental.CommonPool
+import kotlinx.coroutines.experimental.android.UI
+import kotlinx.coroutines.experimental.async
 
 /**
  * Created by FRAMGIA\nguyen.huu.tho on 10/04/2018.
  */
-class FilterAdapter(val context: Context?, val onItemClick: (filterItem: FilterItem, view: View) -> Unit) : RecyclerView.Adapter<Holder>() {
+class FilterAdapter(val context: Context?,private val onItemClick: (filterItem: FilterItem, view: View) -> Unit) : RecyclerView.Adapter<Holder>() {
 
     var filters = mutableListOf<FilterItem>()
         set(value) {
+            val size = filters.size
             filters.clear()
+            bitmapFilters.clear()
+            notifyItemRangeRemoved(0,size)
+
             filters.addAll(value)
-            notifyDataSetChanged()
+            loadBitmapFilters(filters)
         }
+
+    private var bitmapFilters = mutableListOf<Bitmap>()
 
     var mBitmapThumb: Bitmap? = null
 
@@ -31,28 +40,32 @@ class FilterAdapter(val context: Context?, val onItemClick: (filterItem: FilterI
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
 
-        val filter = filters[position]
+        if (filters.size == bitmapFilters.size) {
 
-        if (filter.isSelected) {
-            holder.mTextFilter.setBackgroundColor(context?.resources?.getColor(R.color.colorAccent)!!)
-        } else {
-            holder.mTextFilter.setBackgroundColor(context?.resources?.getColor(R.color.colorTextDarkSecondary)!!)
-        }
+            val filter = filters[position]
 
-        holder.mTextFilter.text = filter.name
-        holder.mImageFilter.setImageBitmap(getBitmapFilter(filter.source))
-
-        holder.itemView.setOnClickListener {
-
-            findLastItemSelected()?.let {
-                it.isSelected = false
-                notifyItemChanged(filters.indexOf(it))
+            if (filter.isSelected) {
+                holder.mTextFilter.setBackgroundColor(context?.resources?.getColor(R.color.colorAccent)!!)
+            } else {
+                holder.mTextFilter.setBackgroundColor(context?.resources?.getColor(R.color.colorTextDarkSecondary)!!)
             }
 
-            filter.isSelected = true
-            notifyItemChanged(position)
+            holder.mTextFilter.text = filter.name
+            holder.mImageFilter.setImageBitmap(bitmapFilters[position])
 
-            onItemClick.invoke(filter, holder.itemView)
+
+            holder.itemView.setOnClickListener {
+
+                findLastItemSelected()?.let {
+                    it.isSelected = false
+                    notifyItemChanged(filters.indexOf(it))
+                }
+
+                filter.isSelected = true
+                notifyItemChanged(position)
+
+                onItemClick.invoke(filter, holder.itemView)
+            }
         }
     }
 
@@ -70,7 +83,17 @@ class FilterAdapter(val context: Context?, val onItemClick: (filterItem: FilterI
         return mGpuImage.bitmapWithFilterApplied
     }
 
-    private fun findLastItemSelected(): FilterItem? {
+    private fun loadBitmapFilters(filters: MutableList<FilterItem>) {
+        async(UI) {
+            async(CommonPool) {
+                filters.forEach { bitmapFilters.add(getBitmapFilter(it.source)) }
+                bitmapFilters
+            }.await()
+            notifyDataSetChanged()
+        }
+    }
+
+    public fun findLastItemSelected(): FilterItem? {
         val selecteds = filters.filterIndexed { _, filterItem -> filterItem.isSelected }
         if (selecteds.isNotEmpty()) {
             return selecteds.get(0)

@@ -147,7 +147,9 @@ class FilterFragment : BaseFragment() {
     private fun onCategorySelected(filterGroup: FilterGroup, textView: TextView) {
         mCategoryContainer.forEachChild { (it as TextView).setTextColor(resources.getColor(R.color.colorTextDarkSecondary)) }
         textView.setTextColor(resources.getColor(R.color.colorAccent))
-
+        mFilterAdapter.findLastItemSelected()?.let {
+            it.isSelected = false
+        }
         mFilterAdapter.filters = filterGroup.items
     }
 

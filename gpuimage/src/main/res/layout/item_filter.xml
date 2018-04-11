@@ -19,7 +19,6 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorTextDarkSecondary"
         android:gravity="center"
-        android:text="B1"
         android:textColor="@color/colorWhite" />
 
 </RelativeLayout>
