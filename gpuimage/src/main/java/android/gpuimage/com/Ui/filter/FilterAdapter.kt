@@ -11,6 +11,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.widget.ImageView
 import android.widget.TextView
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.android.UI
@@ -19,20 +21,15 @@ import kotlinx.coroutines.experimental.async
 /**
  * Created by FRAMGIA\nguyen.huu.tho on 10/04/2018.
  */
-class FilterAdapter(val context: Context?,private val onItemClick: (filterItem: FilterItem, view: View) -> Unit) : RecyclerView.Adapter<Holder>() {
+class FilterAdapter(val context: Context?, private val onItemClick: (filterItem: FilterItem, view: View) -> Unit) : RecyclerView.Adapter<Holder>() {
 
     var filters = mutableListOf<FilterItem>()
         set(value) {
-            val size = filters.size
             filters.clear()
-            bitmapFilters.clear()
-            notifyItemRangeRemoved(0,size)
-
+            notifyDataSetChanged()
             filters.addAll(value)
-            loadBitmapFilters(filters)
+            notifyDataSetChanged()
         }
-
-    private var bitmapFilters = mutableListOf<Bitmap>()
 
     var mBitmapThumb: Bitmap? = null
 
@@ -40,32 +37,28 @@ class FilterAdapter(val context: Context?,private val onItemClick: (filterItem: 
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
 
-        if (filters.size == bitmapFilters.size) {
+        val filter = filters[position]
 
-            val filter = filters[position]
+        if (filter.isSelected) {
+            holder.mTextFilter.setBackgroundColor(context?.resources?.getColor(R.color.colorAccent)!!)
+        } else {
+            holder.mTextFilter.setBackgroundColor(context?.resources?.getColor(R.color.colorTextDarkSecondary)!!)
+        }
 
-            if (filter.isSelected) {
-                holder.mTextFilter.setBackgroundColor(context?.resources?.getColor(R.color.colorAccent)!!)
-            } else {
-                holder.mTextFilter.setBackgroundColor(context?.resources?.getColor(R.color.colorTextDarkSecondary)!!)
+        holder.mTextFilter.text = filter.name
+        getBitmapFilter( holder.mTextFilter,holder.mImageFilter, filter.source)
+
+        holder.itemView.setOnClickListener {
+
+            findLastItemSelected()?.let {
+                it.isSelected = false
+                notifyItemChanged(filters.indexOf(it))
             }
 
-            holder.mTextFilter.text = filter.name
-            holder.mImageFilter.setImageBitmap(bitmapFilters[position])
+            filter.isSelected = true
+            notifyItemChanged(position)
 
-
-            holder.itemView.setOnClickListener {
-
-                findLastItemSelected()?.let {
-                    it.isSelected = false
-                    notifyItemChanged(filters.indexOf(it))
-                }
-
-                filter.isSelected = true
-                notifyItemChanged(position)
-
-                onItemClick.invoke(filter, holder.itemView)
-            }
+            onItemClick.invoke(filter, holder.itemView)
         }
     }
 
@@ -73,27 +66,37 @@ class FilterAdapter(val context: Context?,private val onItemClick: (filterItem: 
         return Holder(LayoutInflater.from(context).inflate(R.layout.item_filter, parent, false))
     }
 
-    private fun getBitmapFilter(sourcePathFilter: String): Bitmap {
-        val lookup = GPUImageLookupFilter()
-        lookup.bitmap = BitmapFactory.decodeStream(context?.assets?.open(sourcePathFilter))
+    private fun getBitmapFilter(textView: TextView,imageView: ImageView, sourcePathFilter: String) {
 
-        val mGpuImage = GPUImage(context)
-        mGpuImage.setImage(mBitmapThumb)
-        mGpuImage.setFilter(lookup)
-        return mGpuImage.bitmapWithFilterApplied
-    }
+        textView.alpha = 0f
+        imageView.alpha = 0f
 
-    private fun loadBitmapFilters(filters: MutableList<FilterItem>) {
         async(UI) {
-            async(CommonPool) {
-                filters.forEach { bitmapFilters.add(getBitmapFilter(it.source)) }
-                bitmapFilters
-            }.await()
-            notifyDataSetChanged()
+            val bitmap = async(CommonPool) {
+                val lookup = GPUImageLookupFilter()
+                lookup.bitmap = BitmapFactory.decodeStream(this@FilterAdapter.context?.assets?.open(sourcePathFilter))
+
+                val mGpuImage = GPUImage(this@FilterAdapter.context)
+                mGpuImage.setImage(mBitmapThumb)
+                mGpuImage.setFilter(lookup)
+                mGpuImage.bitmapWithFilterApplied
+            }
+            imageView.setImageBitmap(bitmap.await())
+            imageView.animate()
+                    .alpha(1f)
+                    .setDuration(300)
+                    .setInterpolator(AccelerateDecelerateInterpolator())
+                    .setStartDelay(100)
+
+            textView.animate()
+                    .alpha(1f)
+                    .setDuration(300)
+                    .setInterpolator(AccelerateDecelerateInterpolator())
+                    .setStartDelay(100)
         }
     }
 
-    public fun findLastItemSelected(): FilterItem? {
+    fun findLastItemSelected(): FilterItem? {
         val selecteds = filters.filterIndexed { _, filterItem -> filterItem.isSelected }
         if (selecteds.isNotEmpty()) {
             return selecteds.get(0)

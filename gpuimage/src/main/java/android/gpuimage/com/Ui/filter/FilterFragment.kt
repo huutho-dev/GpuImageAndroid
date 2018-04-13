@@ -52,7 +52,7 @@ class FilterFragment : BaseFragment() {
         mGpuImage.setBackgroundColor(0f, 0f, 0f, 0f)
         mGpuImage.requestRender()
 
-        val bmpThumb = Bitmap.createScaledBitmap(bmp, dip(56), dip(56), false)
+        val bmpThumb = Bitmap.createScaledBitmap(bmp, dip(48), dip(48), false)
         mFilterAdapter.mBitmapThumb = bmpThumb
     }
 
@@ -151,6 +151,7 @@ class FilterFragment : BaseFragment() {
             it.isSelected = false
         }
         mFilterAdapter.filters = filterGroup.items
+        mRecyclerView.scrollToPosition(0)
     }
 
     /**
