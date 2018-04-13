@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/GpuImageAndroid.iml" filepath="$PROJECT_DIR$/GpuImageAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/gpuimage/gpuimage.iml" filepath="$PROJECT_DIR$/gpuimage/gpuimage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sticky/sticky.iml" filepath="$PROJECT_DIR$/sticky/sticky.iml" />
       <module fileurl="file://$PROJECT_DIR$/utils/utils.iml" filepath="$PROJECT_DIR$/utils/utils.iml" />
     </modules>
   </component>

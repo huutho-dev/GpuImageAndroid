@@ -1,1 +1,1 @@
-include ':app', ':gpuimage', ':utils'
+include ':app', ':gpuimage', ':utils', ':sticky'
