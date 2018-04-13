@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="action_bar_height">@dimen/_48dp</dimen>
+    <dimen name="tool_container_height">100dp</dimen>
+    <dimen name="text_control_height">85dp</dimen>
+
+</resources>

@@ -1,13 +1,16 @@
 package android.gpuimage.com.gpuimageandroid
 
-import android.gpuimage.com.Ui.filter.FilterFragment
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.os.Handler
+import android.sticky.com.ui.IconStickyFragment
 import android.support.v7.app.AppCompatActivity
 import android.view.Window
 import android.view.WindowManager
 import com.sample.huutho.utils.decodeResource
+import com.sample.huutho.utils.getBitmapFromTempCache
 import com.sample.huutho.utils.saveBitmapToTempCache
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,10 +30,22 @@ class MainActivity : AppCompatActivity() {
                             { supportFragmentManager
                                     .beginTransaction()
                                     .addToBackStack("AdjustFragment")
-                                    .add(R.id.root, FilterFragment.newInstance())
+                                    .add(R.id.root, IconStickyFragment.newInstance())
                                     .commit()},
                             {})
                 },
                 failure = {})
+
+
+        supportFragmentManager.addOnBackStackChangedListener {
+
+            Handler().postDelayed({
+                getBitmapFromTempCache({},{bmp : Bitmap -> image_view.setImageBitmap(bmp)},{})
+            },5000)
+
+
+        }
+
     }
+
 }

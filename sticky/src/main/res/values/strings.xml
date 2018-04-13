@@ -1,3 +1,78 @@
 <resources>
-    <string name="app_name">Sticker</string>
+    <string name="app_name">EditorLib</string>
+    <string name="content_description">Image</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+
+    <!--Choose Tools-->
+    <string name="tool">Ahihi</string>
+    <string name="tool_beautiful">Beautiful</string>
+    <string name="tool_crop">Crop</string>
+    <string name="tool_filter">Filter</string>
+    <string name="tool_sticky">Sticky</string>
+    <string name="tool_doodle">Doodle</string>
+    <string name="tool_text">Text</string>
+    <string name="tool_adjust">Adjust</string>
+    <string name="tool_mosaic">Mosaic</string>
+    <string name="tool_remover">Remover</string>
+
+    <!--MakeUp Tool-->
+    <string name="makeup_none">None</string>
+    <string name="makeup_auto">Auto</string>
+    <string name="makeup_food">Food</string>
+    <string name="makeup_scene">Scene</string>
+    <string name="makeup_portrait">Portrait</string>
+
+    <!--Crop Tool-->
+    <string name="crop_rotate">Rotate</string>
+
+    <!--Adjust Tool-->
+    <string name="adjust_brightness">Brightness</string>
+    <string name="adjust_sharpen">Sharpen</string>
+    <string name="adjust_contrast">Contrast</string>
+    <string name="adjust_saturation">Saturation</string>
+    <string name="adjust_vignette">Vignette</string>
+
+    <!--Remove-->
+    <string name="remove_object">Object</string>
+    <string name="remove_linear">Linear</string>
+
+    <!--Doodle-->
+    <string name="doodle_path">Path</string>
+    <string name="doodle_line">Line</string>
+    <string name="doodle_rect">Rectangle</string>
+    <string name="doodle_circle">Circle</string>
+    <string name="doodle_arrow">Arrow</string>
+
+    <!--Text-->
+    <string name="input_text_hint">Enter your text</string>
+    <string name="text_keybroad">KeyBroad</string>
+    <string name="text_style">Style</string>
+    <string name="text_font">Font</string>
+
+    <string name="text_color">Color</string>
+    <string name="text_alpha">Alpha</string>
+    <string name="text_stroke">Stroke</string>
+    <string name="text_stroke_color">Stroke color</string>
+    <string name="text_shadow">Shadow</string>
+    <string name="text_align">Align</string>
+    <string name="text_style_n_b_i">Bold</string>
+
+    MosaicEntitysaic-->
+    <string name="mosaic_blur">Blur</string>
+    <string name="mosaic_square">Square</string>
+    <string name="mosaic_triangle">Triangle</string>
+    <string name="mosaic_dot">Dot</string>
+    <string name="mosaic_love">Love</string>
+    <string name="mosaic_small">Small</string>
+    <string name="mosaic_flower">Flower</string>
+    <string name="mosaic_kiwi">Kiwi</string>
+    <string name="mosaic_melon">Melon</string>
+    <string name="mosaic_star">Star</string>
+    <string name="mosaic_wave">Wave</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="StartPointSeekBar">
+        <attr name="minValue" format="float"/>
+        <attr name="maxValue" format="float"/>
+        <attr name="thumbDrawable" format="reference"></attr>
+        <attr name="thumbPressedDrawable" format="reference"></attr>
+        <attr name="defaultBackgroundColor" format="color"></attr>
+        <attr name="defaultBackgroundRangeColor" format="color"></attr>
+    </declare-styleable>
+
     <declare-styleable name="StickerGroup">
         <attr name="showIcons" format="boolean" />
         <attr name="showBorder" format="boolean" />
