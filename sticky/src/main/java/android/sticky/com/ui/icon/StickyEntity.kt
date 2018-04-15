@@ -1,4 +1,4 @@
-package android.sticky.com.ui
+package android.sticky.com.ui.icon
 
 import com.google.gson.annotations.SerializedName
 

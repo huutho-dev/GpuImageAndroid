@@ -1,4 +1,4 @@
-package android.sticky.com.ui
+package android.sticky.com.ui.icon
 
 import android.net.Uri
 import android.sticky.com.R
