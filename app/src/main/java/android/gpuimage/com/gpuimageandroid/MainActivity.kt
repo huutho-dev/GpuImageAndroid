@@ -3,7 +3,7 @@ package android.gpuimage.com.gpuimageandroid
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.os.Handler
-import android.sticky.com.ui.icon.IconStickyFragment
+import android.sticky.com.ui.text.TextStickyFragment
 import android.support.v7.app.AppCompatActivity
 import android.view.Window
 import android.view.WindowManager
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                             { supportFragmentManager
                                     .beginTransaction()
                                     .addToBackStack("AdjustFragment")
-                                    .add(R.id.root, IconStickyFragment.newInstance())
+                                    .add(R.id.root, TextStickyFragment.newInstance())
                                     .commit()},
                             {})
                 },

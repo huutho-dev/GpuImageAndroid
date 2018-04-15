@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <include
+        android:id="@+id/control_bar"
+        layout="@layout/view_control_bar" />
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_sticker_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/relative_layout_container"
+        android:layout_below="@+id/control_bar"
+        android:layout_centerInParent="true">
+
+        <android.sticky.com.lib.StickerGroup
+            android:id="@+id/sticker_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_8dp"
+            app:bringToFrontCurrentSticker="true"
+            app:showBorder="true"
+            app:showIcons="true">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:scaleType="centerInside" />
+
+        </android.sticky.com.lib.StickerGroup>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_container"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:id="@+id/image_more"
+            android:layout_width="?android:attr/actionBarSize"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_16dp"
+            android:rotation="45"
+            android:src="@drawable/ic_close" />
+
+        <EditText
+            android:id="@+id/edit_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/image_done"
+            android:layout_toRightOf="@+id/image_more"
+            android:background="@drawable/bg_editext_input"
+            android:cursorVisible="true" />
+
+        <ImageView
+            android:id="@+id/image_done"
+            android:layout_width="?android:attr/actionBarSize"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/_16dp"
+            android:src="@drawable/ic_check" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:background="#7e7e7e"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relative_layout_container" />
+</RelativeLayout>
