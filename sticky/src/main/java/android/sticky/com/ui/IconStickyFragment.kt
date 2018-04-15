@@ -114,6 +114,9 @@ class IconStickyFragment : Fragment(), OnStickerOperationListener, IconStickyAda
             }
             mContainerCategory.addView(categoryView)
         }
+        if (mContainerCategory.childCount > 0){
+            mContainerCategory.getChildAt(0).performClick()
+        }
     }
 
 
