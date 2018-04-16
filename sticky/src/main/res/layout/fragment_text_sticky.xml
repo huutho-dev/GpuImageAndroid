@@ -14,7 +14,7 @@
         android:id="@+id/relative_layout_sticker_group"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/relative_layout_container"
+        android:layout_above="@+id/relative_layout_edittext"
         android:layout_below="@+id/control_bar"
         android:layout_centerInParent="true">
 
@@ -43,30 +43,33 @@
 
 
     <RelativeLayout
-        android:id="@+id/relative_layout_container"
+        android:id="@+id/relative_layout_edittext"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:layout_alignParentBottom="true"
         android:background="@color/colorWhite">
 
-        <ImageView
-            android:id="@+id/image_more"
-            android:layout_width="?android:attr/actionBarSize"
-            android:layout_height="match_parent"
-            android:padding="@dimen/_16dp"
-            android:rotation="45"
-            android:src="@drawable/ic_close" />
 
         <EditText
             android:id="@+id/edit_input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="10dp"
+            android:layout_marginLeft="@dimen/_4dp"
             android:layout_marginTop="10dp"
             android:layout_toLeftOf="@+id/image_done"
-            android:layout_toRightOf="@+id/image_more"
             android:background="@drawable/bg_editext_input"
             android:cursorVisible="true" />
+
+        <ImageView
+            android:id="@+id/image_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignRight="@+id/edit_input"
+            android:paddingBottom="@dimen/_16dp"
+            android:paddingRight="@dimen/_8dp"
+            android:paddingTop="@dimen/_16dp"
+            android:src="@drawable/ic_close" />
 
         <ImageView
             android:id="@+id/image_done"
@@ -77,9 +80,39 @@
             android:src="@drawable/ic_check" />
     </RelativeLayout>
 
-    <FrameLayout
-        android:background="#7e7e7e"
+    <RelativeLayout
+        android:id="@+id/relative_layout_option"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40dp"
+        android:layout_below="@+id/relative_layout_edittext"
+        android:background="#7e7e7e">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/_8dp"
+            android:text="Keyboard" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/_8dp"
+            android:text="Style" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/_8dp"
+            android:text="Font" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_container_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/relative_layout_container" />
+        android:layout_below="@+id/relative_layout_option" />
 </RelativeLayout>

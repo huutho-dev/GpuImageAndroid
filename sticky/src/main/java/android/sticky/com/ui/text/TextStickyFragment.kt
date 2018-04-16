@@ -24,19 +24,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
-import android.widget.Toast
-import com.sample.huutho.utils.getBitmapFromTempCache
-import com.sample.huutho.utils.getScreenHeight
-import com.sample.huutho.utils.saveBitmapToTempCache
+import android.widget.*
+import com.sample.huutho.utils.*
 import java.io.File
 import java.util.*
 
 class TextStickyFragment : Fragment(), OnStickerOperationListener, KeyboardHeightObserver {
 
     companion object {
+        const val MODE_KEYBOARD = 0x11
+        const val MODE_EDIT = 0x12
+
         fun newInstance() = TextStickyFragment()
     }
 
@@ -46,9 +44,19 @@ class TextStickyFragment : Fragment(), OnStickerOperationListener, KeyboardHeigh
     private lateinit var mTitle: TextView
     private lateinit var mImageView: ImageView
     private lateinit var mStickerGroup: StickerGroup
-    private lateinit var mOptionContainer: RelativeLayout
+    private lateinit var mLayoutEdittext: RelativeLayout
     private lateinit var mStickerGroupContainer: RelativeLayout
-    private var mIsActive = false
+
+    private lateinit var mLayoutOption: RelativeLayout
+    private lateinit var mImageDone: ImageView
+    private lateinit var mImagePlus: ImageView
+    private lateinit var mEditInput: EditText
+
+    private lateinit var mContainerFragment: RelativeLayout
+
+    private var mIsActive = true
+
+    private var mKeyboardHeight = 10
 
 
     /**********************************************************************************************/
@@ -77,11 +85,24 @@ class TextStickyFragment : Fragment(), OnStickerOperationListener, KeyboardHeigh
         mTitle = view.findViewById(R.id.control_bar_title)
         mImageView = view.findViewById(R.id.image_view)
         mStickerGroup = view.findViewById(R.id.sticker_group)
-        mOptionContainer = view.findViewById(R.id.relative_layout_container)
+        mLayoutEdittext = view.findViewById(R.id.relative_layout_edittext)
+
         mStickerGroupContainer = view.findViewById(R.id.relative_layout_sticker_group)
+
+        mLayoutOption = view.findViewById(R.id.relative_layout_option)
+
+        mContainerFragment = view.findViewById(R.id.relative_layout_container_fragment)
+
+        mEditInput = view.findViewById(R.id.edit_input)
+        mImagePlus = view.findViewById(R.id.image_clear)
+        mImageDone = view.findViewById(R.id.image_done)
+
+        mImagePlus.setOnClickListener { }
+        mImageDone.setOnClickListener { }
 
         view.findViewById<ImageView>(R.id.control_bar_cancel).setOnClickListener { onCancel() }
         view.findViewById<ImageView>(R.id.control_bar_done).setOnClickListener { onSave() }
+
         context?.getBitmapFromTempCache(start, success, failure)
         return view
     }
@@ -103,12 +124,10 @@ class TextStickyFragment : Fragment(), OnStickerOperationListener, KeyboardHeigh
         context?.saveBitmapToTempCache(mStickerGroup.createBitmap(), saveSuccess, saveFailure)
     }
 
-
     override fun onResume() {
         super.onResume()
         keyboardHeightProvider.setKeyboardHeightObserver(this)
     }
-
 
     override fun onPause() {
         super.onPause()
@@ -127,30 +146,12 @@ class TextStickyFragment : Fragment(), OnStickerOperationListener, KeyboardHeigh
         Log.i("TextStickyFragment", "onKeyboardHeightChanged in pixels: $height $or")
 
         // Điểm neo : chính là điểm góc trên bên trái của bàn phím
-        if (mIsActive){
+        if (mIsActive) {
             val pointAnchor = getScreenHeight() - height
-            mOptionContainer.animate()
-                    .y((pointAnchor - mOptionContainer.height).toFloat())
+            mLayoutEdittext.animate()
+                    .y((pointAnchor - mLayoutEdittext.height).toFloat())
                     .setDuration(130)
                     .setInterpolator(AccelerateInterpolator())
-                    .withEndAction {
-                        if (height == 0) {
-                            mStickerGroupContainer
-                                    .animate()
-                                    .y((mOptionContainer.y - mStickerGroupContainer.height))
-                                    .setDuration(130)
-                                    .setInterpolator(AccelerateInterpolator())
-                                    .start()
-
-                        } else {
-                            mStickerGroupContainer
-                                    .animate()
-                                    .y(mOptionContainer.y - mStickerGroupContainer.height + height / 3)
-                                    .setDuration(130)
-                                    .setInterpolator(AccelerateInterpolator())
-                                    .start()
-                        }
-                    }
                     .start()
         }
 
@@ -163,6 +164,45 @@ class TextStickyFragment : Fragment(), OnStickerOperationListener, KeyboardHeigh
 
 
     /************************************** INNER FUNCTION ****************************************/
+
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
+    private fun showFragment(fragment: Fragment) {
+
+        context?.forceHideKeyBoard()
+
+        val anchorYLayoutEdit = getScreenHeight() - mKeyboardHeight - mLayoutOption.height - mLayoutEdittext.height
+        if (mLayoutEdittext.y != anchorYLayoutEdit.toFloat())
+            mLayoutEdittext
+                    .animate()
+                    .y(anchorYLayoutEdit.toFloat())
+                    .setInterpolator(AccelerateInterpolator())
+                    .start()
+
+
+        val anchorYLayoutOption = mLayoutEdittext.y + mLayoutEdittext.height
+        mLayoutOption.visible()
+        if (mLayoutOption.y != anchorYLayoutOption)
+            mLayoutOption
+                    .animate()
+                    .y(mLayoutEdittext.y + mLayoutEdittext.height)
+                    .setInterpolator(AccelerateInterpolator())
+                    .start()
+
+
+        val childFrag = childFragmentManager.findFragmentById(R.id.relative_layout_container_fragment)
+        if (childFrag != fragment ){
+            childFragmentManager.beginTransaction()
+                    .add(R.id.relative_layout_container_fragment, fragment)
+                    .commit()
+        }
+
+        Toast.makeText(context, "Hide keyboard - add Fragment to Container Fragment", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showKeyBoard() {
+
+    }
+
 
     private fun initStickerGroup() {
 
